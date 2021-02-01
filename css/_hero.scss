@@ -1,0 +1,58 @@
+.banner {
+  position: relative;
+  background-image: url(../images/vcam_1.jpg);
+  min-height: 90vh;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner__content {
+  max-width: 900px;
+  text-align: center;
+}
+
+.banner__content > h1 {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.banner__content > p {
+  font-size: 1em;
+  color: #fff;
+}
+
+.btn-hero {
+  font-size: 0.8rem;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 30px;
+  margin-top: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #ff0157;
+  border: none;
+  letter-spacing: 3px;
+  cursor: pointer;
+  outline-style: none;
+  transition: all 0.2s ease-in;
+}
+
+.btn-hero:hover {
+  letter-spacing: 5px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 100px;
+  transition: 0.5s;
+}

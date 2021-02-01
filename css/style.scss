@@ -1,0 +1,54 @@
+@import "_product.scss";
+@import "_hero.scss";
+@import "_footer.scss";
+@import "_nav.scss";
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.btn-ViewAll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  button {
+    font-size: 0.8rem;
+    color: #fff;
+    padding: 10px 30px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: #ff0157;
+    border: none;
+    letter-spacing: 3px;
+    outline-style: none;
+    transition: all 0.2s ease-in;
+  }
+  button:hover {
+    letter-spacing: 5px;
+  }
+}
+h2 {
+  span {
+    color: #ff0157;
+    font-size: 3rem;
+  }
+}
+.container {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    color: inherit !important;
+  }
+}

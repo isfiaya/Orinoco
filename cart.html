@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/cart.css">
+	<link rel="shortcut icon" href="images/orinoco-favicon.png" type="image/x-icon">
+	<title>Orinoco</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-light">
+		<div class="container-fluid">
+
+			<a class="navbar-brand " href="index.html">
+				<img src="/images/Orinoco-removebg-preview.jpg" alt="Logo Orinoco" class="logo ">
+
+			</a>
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="active" aria-current="page" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="" href="cart.html">Cart</a>
+					</li>
+					<li class="nav-item">
+						<a class="" href="#">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="" href="#">Contact</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+	<div class="container">
+		<h2>Items in your Cart</h2>
+		<table id="cart_items">
+			<tr>
+				<th>Name</th>
+				<th>Lenses</th>
+				<th>Price</th>
+			</tr>
+
+			<!-- <tr>
+				<td>Alfreds Futterkiste</td>
+				<td>Maria Anders</td>
+				<td>333$</td>
+				<td class="btn-del"><button>X</button></td>
+			</tr> -->
+			<!-- <tr>
+				<th colspan="2">TOTAL</th>
+				<td>999$</td>
+			</tr> -->
+
+		</table>
+		<h2>Submit Order</h2>
+		<div class="submit-order">
+			<form action="" class="row">
+				<div class="col-12 col-sm-6">
+					<label for="first-name">First Name<span class="required">*</span></label>
+					<input type="text" id="first-name" name="first-name" required>
+				</div>
+				<div class="col-12 col-sm-6">
+					<label for="Last-name">Last Name<span class="required">*</span></label>
+					<input type="text" id="Last-name" name="Last-name" required>
+				</div>
+				<div class="col-12 col-sm-6">
+					<label for="E-mail">E-mail<span class="required">*</span></label>
+					<input type="email" id="E-mail" name="E-mail" required>
+				</div>
+				<div class="col-12 col-sm-6">
+					<label for="address">Adress<span class="required">*</span></label>
+					<input type="text" id="address" name="address" required>
+				</div>
+				<div class="col-12 col-sm-6">
+					<label for="City">City<span class="required">*</span></label>
+					<input type="text" id="City" name="City" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit Order</button>
+			</form>
+		</div>
+	</div>
+
+	<footer>
+		<div class="social">
+			<a href="www.facebook.com"><img src="images/facebook.svg" alt="facebook"></a>
+			<a href="www.instagram.com"><img src="images/instagram.svg" alt="instagram" class="img-insta"></a>
+			<a href="www.twitter.com"><img src="images/twitter.svg" alt="twitter"></a>
+			<a href="www.youtube.com"><img src="images/youtube.svg" alt="youtube"></a>
+		</div>
+		<ul class="list-inline">
+			<li class="list-inline-item"><a href="index.html">Home</a></li>
+			<li class="list-inline-item"><a href="#">Services</a></li>
+			<li class="list-inline-item"><a href="#">About</a></li>
+			<li class="list-inline-item"><a href="#">Terms</a></li>
+			<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+		</ul>
+		<p class="copyright">Company Name © Orinoco</p>
+	</footer>
+
+
+	<script src="/js/bootstrap.bundle.js"></script>
+	<script src="/js/cart.js"></script>
+</body>
+
+</html>

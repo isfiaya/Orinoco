@@ -1,0 +1,51 @@
+@import "_footer.scss";
+@import "_nav.scss";
+* {
+  box-sizing: border-box;
+}
+.checked {
+  color: orange;
+}
+.container {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  label {
+    padding-right: 20px;
+  }
+  button {
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+  }
+}
+
+//gallary img
+.content {
+  border: 1px solid #ccc;
+  padding: 5px 5px 0 5px;
+  width: 100%;
+}
+.gallary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+}
+#picture {
+  width: 100%;
+}
+.thumb {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.3s;
+  width: 23%;
+}
+
+.thumb:hover {
+  opacity: 1;
+}

@@ -1,0 +1,52 @@
+@import "_nav.scss";
+@import "_footer.scss";
+
+//table
+table {
+  border-collapse: collapse;
+  width: 85%;
+  margin: 35px auto;
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {
+    background-color: #f3eaf1;
+  }
+  .btn-del {
+    text-align: center;
+    button {
+      background-color: red;
+      color: wheat;
+      border-radius: 5px;
+      outline: none;
+      border: white;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+        0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+h2 {
+  text-align: center;
+}
+label {
+  display: block;
+}
+.submit-order {
+  width: 85%;
+  margin: 35px auto;
+  input {
+    width: 100%;
+  }
+  button {
+    margin-top: 10px;
+  }
+}
+.required {
+  color: red;
+}
+.container {
+  margin: 40px auto;
+}
