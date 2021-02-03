@@ -128,9 +128,6 @@ table tr:nth-child(even) {
 
 table .btn-del {
   text-align: center;
-}
-
-table .btn-del button {
   background-color: red;
   color: wheat;
   border-radius: 5px;
@@ -167,5 +164,18 @@ label {
 
 .container {
   margin: 40px auto;
+}
+
+.total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.total-price {
+  margin-left: 20px;
 }
 /*# sourceMappingURL=cart.css.map */
