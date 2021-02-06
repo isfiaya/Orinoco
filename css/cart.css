@@ -178,4 +178,17 @@ label {
 .total-price {
   margin-left: 20px;
 }
+
+.divImage img {
+  width: 70px;
+  margin-right: 10px;
+}
+
+.divImage p {
+  display: inline;
+}
+
+.quantity {
+  width: 50px;
+}
 /*# sourceMappingURL=cart.css.map */

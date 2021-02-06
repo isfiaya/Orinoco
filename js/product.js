@@ -1,7 +1,14 @@
 'use strict';
+// DOM ELEMENT REFERENCES
+let nameElem = document.querySelector('h2');
+let imageElem = document.getElementById('picture');
+let priceElem = document.getElementById('price');
+let descElem = document.getElementById('desc');
+let select = document.getElementById('camera')
 
-let product = {};
-// Get current 'cart' from localstorage as Array (IF EXISTS!)
+//
+let product = {}; // Get current 'cart' from localstorage as Array (IF EXISTS!)
+
 
 function init() { // Initialize
 
@@ -51,19 +58,12 @@ function showProduct(data) {
   let imageUrl = data.imageUrl;
   let lenses = data.lenses;
 
-  // Display Product Data
-  let nameElem = document.querySelector('h2');
-  let imageElem = document.getElementById('picture');
-  let priceElem = document.getElementById('price');
-  let descElem = document.getElementById('desc');
-  let select = document.getElementById('camera')
-
   imageElem.setAttribute('src', imageUrl);
   nameElem.innerHTML = name;
-  priceElem.innerHTML = price;
+  priceElem.innerHTML = price + ` $`;
   descElem.innerHTML = description;
 
-  // LENSE SELECTIONS
+  // DORPDOWN LISTENER
   for (let i in lenses) {
     const newOption = document.createElement("option");
     newOption.textContent = lenses[i];
@@ -84,11 +84,27 @@ btnAddToCart.addEventListener('click', () => {
   } else {
     cartItems = JSON.parse(localStorageContent);
   }
-  cartItems.push(product);
+  cartItems.push({ imageUrl: product.imageUrl, price: product.price, name: product.name, selectLenses: select.value });
   localStorage.setItem('cart', JSON.stringify(cartItems));
   // console.log('item added the cart');
 
 });
+
+// select.addEventListener('change', ($event) => {
+//   const localStorageLenses = localStorage.getItem('cart');
+//   let cartLenses;
+//   if (localStorageLenses === null) {
+//     cartLenses = [];
+//   } else {
+//     cartLenses = JSON.parse(localStorageLenses);
+//   }
+//   cartLenses.push($event.target.value);
+//   localStorage.setItem('cartLenses', JSON.stringify(cartLenses));
+//   console.log($event.target.value);
+
+// })
+
+
 
 // Calling
 init();
