@@ -41,7 +41,7 @@ function showCartItems() {
     priceCell.innerHTML = (cartArray[i].price * cartArray[i].quantity) + ' $';
     imgCell.setAttribute('src', cartArray[i].imageUrl);
 
-    // btnRemove.innerHTML = `<button class="btn-del" id='remove'>X</button>`;
+    btnRemove.innerHTML = `<button class="btn-del" id='remove' onclick='removeItem(${i})'>X</button>`;
     qunatity.innerHTML = `<input type="number" id="quantity" name="quantity" min="1" value ="${cartArray[i].quantity}" class="quantity" onclick="changeQuantity(${i}, event.target.value)">`;
 
     divName.append(imgCell, nameCell);
@@ -54,28 +54,16 @@ function showCartItems() {
 }
 
 function changeQuantity(index, value) {
-  console.log(`Item no.: ${index} quantity is: ${value}`);
   let cartArray = JSON.parse(localStorage.getItem('cart'));
   cartArray[index].quantity = parseInt(value);
-  console.log(cartArray);
   localStorage.setItem('cart', JSON.stringify(cartArray));
-
   // Re-render....
   showCartItems();
-
   // Re-calculate
   calculateTotalCartPrice();
-
 }
 
 function calculateTotalCartPrice() {
-  /**
-   * Get all cartItems from localStorage
-   * loop on the cartArray
-   * Get each product price (quantity * price)
-   * Increment each product total price on the total price
-   * Show total price to the user
-   */
 
   let cartArray = JSON.parse(localStorage.getItem('cart'));
   let total = document.getElementById('total');
@@ -88,6 +76,21 @@ function calculateTotalCartPrice() {
 
   total.innerHTML = totalCartPrice + " $";
 }
+
+
+function removeItem(index) {
+  let cartArray = JSON.parse(localStorage.getItem('cart'));
+  cartArray.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cartArray));
+  // Re-render....
+  showCartItems();
+  // Re-calculate
+  calculateTotalCartPrice();
+}
+
+
+
+
 
 init();
 

@@ -1,23 +1,17 @@
 'use strict';
+
 // DOM ELEMENT REFERENCES
 let nameElem = document.querySelector('h2');
 let imageElem = document.getElementById('picture');
 let priceElem = document.getElementById('price');
 let descElem = document.getElementById('desc');
 let select = document.getElementById('camera')
-
+const btnAddToCart = document.getElementById('btnAddToCart');
 //
-let product = {}; // Get current 'cart' from localstorage as Array (IF EXISTS!)
+let product = {};
 
 
-function init() { // Initialize
-
-  /**
-   * 1. Get `id` query param
-   * 2. Fetch single product data
-   * 3. Display product data
-   */
-
+function init() {
   let productId = getProductId();
   fetchSingleProduct(productId);
 }
@@ -42,7 +36,6 @@ function fetchSingleProduct(id) {
     .then(data => {
       product = data;
       showProduct(data);
-
     })
     .catch(err => console.log(err))
 }
@@ -69,22 +62,18 @@ function showProduct(data) {
     newOption.textContent = lenses[i];
     select.appendChild(newOption);
   }
-
 }
 
-// Add event to the btn Add to cart 
-const btnAddToCart = document.getElementById('btnAddToCart');
+
+// Put Product Data To The LocalStorage
 btnAddToCart.addEventListener('click', () => {
   let cartItems = [];
-
   const localStorageContent = localStorage.getItem('cart');
-
   if (localStorageContent === null) {
     cartItems = [];
   } else {
     cartItems = JSON.parse(localStorageContent);
   }
-
   let singleProduct = {
     imageUrl: product.imageUrl,
     price: product.price,
@@ -92,31 +81,9 @@ btnAddToCart.addEventListener('click', () => {
     selectLenses: select.value,
     quantity: 1
   };
-
   cartItems.push(singleProduct);
-
-  // CRUD - Create, Read, Update, Delete
-  // Algorithm
   localStorage.setItem('cart', JSON.stringify(cartItems));
-  // console.log('item added the cart');
-
 });
-
-// select.addEventListener('change', ($event) => {
-//   const localStorageLenses = localStorage.getItem('cart');
-//   let cartLenses;
-//   if (localStorageLenses === null) {
-//     cartLenses = [];
-//   } else {
-//     cartLenses = JSON.parse(localStorageLenses);
-//   }
-//   cartLenses.push($event.target.value);
-//   localStorage.setItem('cartLenses', JSON.stringify(cartLenses));
-//   console.log($event.target.value);
-
-// })
-
-
 
 // Calling
 init();
