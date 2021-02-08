@@ -75,16 +75,28 @@ function showProduct(data) {
 // Add event to the btn Add to cart 
 const btnAddToCart = document.getElementById('btnAddToCart');
 btnAddToCart.addEventListener('click', () => {
+  let cartItems = [];
 
   const localStorageContent = localStorage.getItem('cart');
-  let cartItems;
-  ///
+
   if (localStorageContent === null) {
     cartItems = [];
   } else {
     cartItems = JSON.parse(localStorageContent);
   }
-  cartItems.push({ imageUrl: product.imageUrl, price: product.price, name: product.name, selectLenses: select.value });
+
+  let singleProduct = {
+    imageUrl: product.imageUrl,
+    price: product.price,
+    name: product.name,
+    selectLenses: select.value,
+    quantity: 1
+  };
+
+  cartItems.push(singleProduct);
+
+  // CRUD - Create, Read, Update, Delete
+  // Algorithm
   localStorage.setItem('cart', JSON.stringify(cartItems));
   // console.log('item added the cart');
 

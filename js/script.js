@@ -1,8 +1,11 @@
 'use strict';
+
 let productsContainer = document.getElementById('products');
+let url = 'http://localhost:3000/api/cameras';
+
 
 async function getProducts() {
-  const response = await fetch("http://localhost:3000/api/cameras");
+  const response = await fetch(url);
   const data = await response.json();
   console.log(data);
 
@@ -39,3 +42,4 @@ async function getProducts() {
   }
 }
 getProducts()
+
