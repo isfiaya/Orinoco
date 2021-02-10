@@ -35,6 +35,7 @@ function fetchSingleProduct(id) {
     .then(response => response.json())
     .then(data => {
       product = data;
+      console.log(product);
       showProduct(data);
     })
     .catch(err => console.log(err))
@@ -79,6 +80,7 @@ btnAddToCart.addEventListener('click', () => {
     price: product.price,
     name: product.name,
     selectLenses: select.value,
+    prodId: product._id,
     quantity: 1
   };
   cartItems.push(singleProduct);

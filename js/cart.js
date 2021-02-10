@@ -1,5 +1,10 @@
 'use strict';
-
+// DOM ELEMENT REFERENCES
+let firstName = document.getElementById('first-name');
+let lastName = document.getElementById('Last-name');
+let mailAddress = document.getElementById('E-mail');
+let address = document.getElementById('address');
+let city = document.getElementById('City');
 /**
  * - Get cartItems from localstorage
  * - Display each cartItem in a <tr>
@@ -22,7 +27,6 @@ function showCartItems() {
 
   // Empty current items
   cartItemsWrapper.innerHTML = '';
-  console.log(cartArray);
 
   for (let i = 0; i < cartArray.length; i++) {
     let tr = document.createElement('tr');
@@ -50,6 +54,9 @@ function showCartItems() {
     // Create cart item row & add it to table
     tr.append(divName, lenseCell, qunatity, priceCell, btnRemove);
     cartItemsWrapper.appendChild(tr);
+
+    // Create array of products for POST request
+    products.push(cartArray[i].prodId);
   }
 }
 
@@ -89,75 +96,125 @@ function removeItem(index) {
 }
 
 
-
-
-
 init();
 
 
 
-
-
-// // btn Remove Item
-// let remove = document.getElementById('remove')
-// remove.addEventListener('click', () => {
-//   // let i = remove.parentElement.parentElement;  // return tr
-//   // cartArray.splice(i, 1);
-
-// });
-
-
 // POST DATA FROM USER 
 // ADD event to the button submit
-// submitButton.addEventListener('click', ($event) => {
-//   $event.preventDefault();
-//   // DOM ELEMENT REFERENCES
-
-//   let firstName = document.getElementById('first-name');
-//   let lastName = document.getElementById('Last-name');
-//   let mailAddress = document.getElementById('E-mail');
-//   let address = document.getElementById('address');
-//   let city = document.getElementById('City');
-//   let contact = {
-//     firstName: firstName.value,
-//     lastName: lastName.value,
-//     email: mailAddress.value,
-//     address: address.value,
-//     city: city.value,
-//   };
-//   let cartArray = JSON.parse(localStorage.getItem('cart'));
-//   let allInfo = {
-//     contact: contact,
-//     products: cartArray,
-//   };
-//   submitFormData(allInfo);
-// });
+submitButton.addEventListener('click', ($event) => {
+  $event.preventDefault();
+  //
+  let contact = new Object();
+  let post;
+  // Object stores informations from form
+  contact = {
+    firstName: firstName.value,
+    lastName: lastName.value,
+    email: mailAddress.value,
+    address: address.value,
+    city: city.value,
+  };
+  post = {
+    contact: contact,
+    products: products,
+  }
+  console.log(post);
+  submitFormData(post);
+});
 
 /**
  * Send inforamtion from user to api
  */
-// function makeRequest(data) {
-//   return new Promise((resolve, reject) => {
-//     let request = new XMLHttpRequest();
-//     request.open('POST', 'http://localhost:3000/api/cameras/order');
-//     request.onreadystatechange = () => {
-//       if (request.readyState === 4 && request.status === 201) {
-//         resolve(JSON.parse(request.response));
-//       } else {
-//         reject(JSON.parse(request.response));
-//       }
-//     };
-//     request.setRequestHeader('Content-type', 'application/json');
-//     request.send(JSON.stringify(data));
-//   });
-// };
+function makeRequest(Data) {
+  return new Promise((resolve, reject) => {
+    let request = new XMLHttpRequest();
+    request.open('POST', 'http://localhost:3000/api/cameras/order');
+    request.onreadystatechange = () => {
+      if (request.readyState === 4) {
+        if (request.status === 201) {
+          resolve(JSON.parse(request.response));
+        }
+      } else {
+        reject(console.log('reject promise'));
+      }
+    };
+    request.setRequestHeader('Content-type', 'application/json');
+    request.send(JSON.stringify(Data));
+  });
+};
 
-// async function submitFormData(allInfo) {
-//   try {
-//     const requestPromise = makeRequest(allInfo);
-//     const response = await requestPromise;
-//     console.log(response);
-//   } catch (errorResponse) {
-//     console.log('err');
-//   }
-// }
+async function submitFormData(post) {
+  try {
+    const requestPromise = makeRequest(post);
+    const response = await requestPromise;
+    console.log(response);
+  } catch (errorResponse) {
+    console.log('handel the err please');
+  }
+}
+
+
+//firstName Validation
+firstName.addEventListener('blur', () => {
+  const regName = /^[a-zA-Z]+$/;
+  if (!regName.test(firstName.value)) {
+    firstName.style.border = 'red solid 2px';
+    return false;
+  }
+  else {
+    firstName.style.border = 'green solid 2px';
+    return true;
+  }
+})
+//lasName Validation
+lastName.addEventListener('blur', () => {
+  const regName = /^[a-zA-Z]+$/;
+  if (!regName.test(lastName.value)) {
+    lastName.style.border = 'red solid 2px';
+    return false;
+  }
+  else {
+    lastName.style.border = 'green solid 2px';
+    return true;
+  }
+})
+//mailAddress Validation
+mailAddress.addEventListener('blur', () => {
+  const regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  if (!regEmail.test(mailAddress.value)) {
+    mailAddress.style.border = 'red solid 2px';
+    return false;
+  }
+  else {
+    mailAddress.style.border = 'green solid 2px';
+    return true;
+  }
+})
+
+
+//adress Validation
+address.addEventListener('blur', () => {
+  const regAddress = /^\s*\S+(?:\s+\S+){2}/;
+  if (!regAddress.test(address.value)) {
+    address.style.border = 'red solid 2px';
+    return false;
+  }
+  else {
+    address.style.border = 'green solid 2px';
+    return true;
+  }
+})
+
+//city Validation
+city.addEventListener('blur', () => {
+  const regName = /^[a-zA-Z]+$/;
+  if (!regName.test(city.value)) {
+    city.style.border = 'red solid 2px';
+    return false;
+  }
+  else {
+    city.style.border = 'green solid 2px';
+    return true;
+  }
+})
