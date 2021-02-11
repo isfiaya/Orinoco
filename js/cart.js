@@ -5,6 +5,16 @@ let lastName = document.getElementById('Last-name');
 let mailAddress = document.getElementById('E-mail');
 let address = document.getElementById('address');
 let city = document.getElementById('City');
+let invalidFeedback = document.querySelectorAll("p.invalid-feedback");
+// initialise Validation Boolean TO False
+let isFirstNameValid = false;
+let isLastNameValid = false;
+let isEmailValid = false;
+let isAddressValid = false;
+let isCityValid = false;
+
+
+
 /**
  * - Get cartItems from localstorage
  * - Display each cartItem in a <tr>
@@ -15,6 +25,7 @@ let city = document.getElementById('City');
  */
 let products = new Array();
 let submitButton = document.getElementById('btnsubmit');
+let orderId;
 
 function init() {
   showCartItems();
@@ -82,6 +93,7 @@ function calculateTotalCartPrice() {
   }
 
   total.innerHTML = totalCartPrice + " $";
+  sessionStorage.setItem('Total', JSON.stringify(totalCartPrice));
 }
 
 
@@ -94,19 +106,13 @@ function removeItem(index) {
   // Re-calculate
   calculateTotalCartPrice();
 }
-
-
-init();
-
-
-
 // POST DATA FROM USER 
 // ADD event to the button submit
 submitButton.addEventListener('click', ($event) => {
   $event.preventDefault();
   //
   let contact = new Object();
-  let post;
+  let post = {};
   // Object stores informations from form
   contact = {
     firstName: firstName.value,
@@ -120,7 +126,14 @@ submitButton.addEventListener('click', ($event) => {
     products: products,
   }
   console.log(post);
-  submitFormData(post);
+  if (isFirstNameValid && isLastNameValid && isEmailValid && isAddressValid && isCityValid) {
+    submitFormData(post);
+    // location.replace('confirmation.html');
+  } else {
+    for (let i = 0; i < invalidFeedback.length; i++) {
+      invalidFeedback[i].style.display = 'block';
+    }
+  }
 });
 
 /**
@@ -148,7 +161,8 @@ async function submitFormData(post) {
   try {
     const requestPromise = makeRequest(post);
     const response = await requestPromise;
-    console.log(response);
+    orderId = response.orderId;
+    sessionStorage.setItem("data", JSON.stringify(orderId));
   } catch (errorResponse) {
     console.log('handel the err please');
   }
@@ -164,7 +178,7 @@ firstName.addEventListener('blur', () => {
   }
   else {
     firstName.style.border = 'green solid 2px';
-    return true;
+    isFirstNameValid = true;
   }
 })
 //lasName Validation
@@ -176,7 +190,7 @@ lastName.addEventListener('blur', () => {
   }
   else {
     lastName.style.border = 'green solid 2px';
-    return true;
+    isLastNameValid = true;
   }
 })
 //mailAddress Validation
@@ -188,11 +202,9 @@ mailAddress.addEventListener('blur', () => {
   }
   else {
     mailAddress.style.border = 'green solid 2px';
-    return true;
+    isEmailValid = true;
   }
 })
-
-
 //adress Validation
 address.addEventListener('blur', () => {
   const regAddress = /^\s*\S+(?:\s+\S+){2}/;
@@ -202,10 +214,9 @@ address.addEventListener('blur', () => {
   }
   else {
     address.style.border = 'green solid 2px';
-    return true;
+    isAddressValid = true;
   }
 })
-
 //city Validation
 city.addEventListener('blur', () => {
   const regName = /^[a-zA-Z]+$/;
@@ -215,6 +226,8 @@ city.addEventListener('blur', () => {
   }
   else {
     city.style.border = 'green solid 2px';
-    return true;
+    isCityValid = true;
   }
 })
+
+init();

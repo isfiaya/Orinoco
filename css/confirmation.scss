@@ -1,0 +1,30 @@
+@import "_footer.scss";
+
+body {
+  height: 100vh;
+  width: 100%;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 130px auto;
+  width: 50%;
+  border: 3px solid gainsboro;
+  text-align: center;
+  header {
+    border: solid 1px gainsboro;
+    width: 100%;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border-top: none;
+    h1 {
+      font-size: 25px;
+    }
+  }
+  div {
+    padding: 30px;
+    font-size: 20px;
+  }
+}
