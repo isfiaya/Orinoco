@@ -6,11 +6,11 @@ let orderId = document.getElementById('orderID')
 
 //
 totalPrice.innerHTML = sessionStorage.getItem('Total') + ' $';
-orderId.innerHTML = sessionStorage.getItem('data')
+orderId.innerHTML = sessionStorage.getItem('orderId')
 
 
 btnBackToStore.addEventListener('click', () => {
-    sessionStorage.removeItem("data");
+    sessionStorage.removeItem("orderId");
     localStorage.removeItem("cart");
     location.replace('index.html');
 

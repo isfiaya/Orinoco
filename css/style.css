@@ -216,7 +216,7 @@ footer .copyright {
 }
 
 nav {
-  background-color: white;
+  background-color: #e9ecef;
 }
 
 nav ul li {
@@ -258,6 +258,14 @@ nav ul li a:hover {
 .navbar-toggler:focus {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
+}
+
+.cartNum {
+  border-radius: 27%;
+  width: 41px;
+  padding: 3px;
+  margin-left: 5px;
+  color: red;
 }
 
 .bd-placeholder-img {

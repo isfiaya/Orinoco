@@ -63,6 +63,7 @@ function showProduct(data) {
     newOption.textContent = lenses[i];
     select.appendChild(newOption);
   }
+  addNumCart()
 }
 
 
@@ -85,7 +86,17 @@ btnAddToCart.addEventListener('click', () => {
   };
   cartItems.push(singleProduct);
   localStorage.setItem('cart', JSON.stringify(cartItems));
+  document.getElementById('confirme-feedback').innerHTML = `Added to cart. <a href='cart.html'>View Cart</a>`
+  addNumCart()
 });
 
+
+// budget cart 
+function addNumCart() {
+  const localStorageContent = localStorage.getItem('cart');
+  let cartItemsArray = JSON.parse(localStorageContent);
+  let cartNum = document.getElementById('cartNum');
+  cartNum.innerHTML = cartItemsArray.length;
+}
 // Calling
 init();

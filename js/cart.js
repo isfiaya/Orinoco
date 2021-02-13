@@ -23,7 +23,7 @@ let isCityValid = false;
  * - Calculate total cartItems price (Should run each time a product quanity input changes or if a cart item was deleted)
  * - Checkout Form
  */
-let products = new Array();
+
 let submitButton = document.getElementById('btnsubmit');
 let orderId;
 
@@ -56,7 +56,7 @@ function showCartItems() {
     priceCell.innerHTML = (cartArray[i].price * cartArray[i].quantity) + ' $';
     imgCell.setAttribute('src', cartArray[i].imageUrl);
 
-    btnRemove.innerHTML = `<button class="btn-del" id='remove' onclick='removeItem(${i})'>X</button>`;
+    btnRemove.innerHTML = `<button class="btn-del" id='remove' onclick='removeItem(${i})'>REMOVE</button>`;
     qunatity.innerHTML = `<input type="number" id="quantity" name="quantity" min="1" value ="${cartArray[i].quantity}" class="quantity" onclick="changeQuantity(${i}, event.target.value)">`;
 
     divName.append(imgCell, nameCell);
@@ -65,10 +65,8 @@ function showCartItems() {
     // Create cart item row & add it to table
     tr.append(divName, lenseCell, qunatity, priceCell, btnRemove);
     cartItemsWrapper.appendChild(tr);
-
-    // Create array of products for POST request
-    products.push(cartArray[i].prodId);
   }
+  addNumCart()
 }
 
 function changeQuantity(index, value) {
@@ -110,24 +108,30 @@ function removeItem(index) {
 // ADD event to the button submit
 submitButton.addEventListener('click', ($event) => {
   $event.preventDefault();
-  //
-  let contact = new Object();
-  let post = {};
+  let products = [];
+
+  //get id prod and push it in array
+  let cartArray = JSON.parse(localStorage.getItem('cart'));
+  for (let i = 0; i < cartArray.length; i++) {
+    products.push(cartArray[i].prodId);
+  }
+  console.log(products);
   // Object stores informations from form
-  contact = {
+  let contact = {
     firstName: firstName.value,
     lastName: lastName.value,
     email: mailAddress.value,
     address: address.value,
     city: city.value,
-  };
-  post = {
+  }
+  let data = {
     contact: contact,
     products: products,
   }
-  console.log(post);
+
+  console.log(data);
   if (isFirstNameValid && isLastNameValid && isEmailValid && isAddressValid && isCityValid) {
-    submitFormData(post);
+    makeRequest(data);
     // location.replace('confirmation.html');
   } else {
     for (let i = 0; i < invalidFeedback.length; i++) {
@@ -139,34 +143,61 @@ submitButton.addEventListener('click', ($event) => {
 /**
  * Send inforamtion from user to api
  */
-function makeRequest(Data) {
-  return new Promise((resolve, reject) => {
-    let request = new XMLHttpRequest();
-    request.open('POST', 'http://localhost:3000/api/cameras/order');
-    request.onreadystatechange = () => {
-      if (request.readyState === 4) {
-        if (request.status === 201) {
-          resolve(JSON.parse(request.response));
-        }
-      } else {
-        reject(console.log('reject promise'));
-      }
-    };
-    request.setRequestHeader('Content-type', 'application/json');
-    request.send(JSON.stringify(Data));
-  });
+function makeRequest(data) {
+  fetch('http://localhost:3000/api/cameras/order', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  }).then((response) => {
+    return response.json();
+  }).then((data) => {
+    console.log(data);
+
+    orderId = data.orderId;
+    sessionStorage.setItem("orderId", orderId);
+
+    location.replace('confirmation.html');
+
+  }).catch((err) => {
+    console.log(err);
+  })
+
+
+  // return new Promise((resolve, reject) => {
+  //   let request = new XMLHttpRequest();
+  //   request.open('POST', 'http://localhost:3000/api/cameras/order');
+  //   request.onreadystatechange = () => {
+  //     if (request.readyState === 4) {
+  //       if (request.status === 201) {
+  //         resolve(JSON.parse(request.response));
+  //         let promiseResponse = JSON.parse(request.response);
+  //         console.log(promiseResponse);
+  //         orderId = promiseResponse.orderId;
+  //         sessionStorage.setItem("data", orderId);
+  //       }
+  //     } else {
+  //       reject(
+  //         console.log('something wrong')
+  //       );
+  //     }
+  //   };
+  //   request.setRequestHeader('Content-type', 'application/json');
+  //   request.send(JSON.stringify(Data));
+  // });
 };
 
-async function submitFormData(post) {
-  try {
-    const requestPromise = makeRequest(post);
-    const response = await requestPromise;
-    orderId = response.orderId;
-    sessionStorage.setItem("data", JSON.stringify(orderId));
-  } catch (errorResponse) {
-    console.log('handel the err please');
-  }
-}
+// async function submitFormData(post) {
+//   try {
+//     const requestPromise = makeRequest(post);
+//     const response = await requestPromise;
+//     orderId = response.orderId;
+//     sessionStorage.setItem("data", JSON.stringify(orderId));
+//   } catch (errorResponse) {
+//     console.log(errorResponse);
+//   }
+// }
 
 
 //firstName Validation
@@ -229,5 +260,14 @@ city.addEventListener('blur', () => {
     isCityValid = true;
   }
 })
+
+
+// budget cart 
+function addNumCart() {
+  const localStorageContent = localStorage.getItem('cart');
+  let cartItemsArray = JSON.parse(localStorageContent);
+  let cartNum = document.getElementById('cartNum');
+  cartNum.innerHTML = cartItemsArray.length;
+}
 
 init();

@@ -41,5 +41,17 @@ async function getProducts() {
     productsContainer.appendChild(product);
   }
 }
+
+// budget cart 
+function addNumCart() {
+  const localStorageContent = localStorage.getItem('cart');
+  if (localStorageContent) {
+    let cartItemsArray = JSON.parse(localStorageContent);
+    let cartNum = document.getElementById('cartNum');
+    cartNum.innerHTML = cartItemsArray.length;
+  }
+}
+
 getProducts()
+addNumCart();
 
