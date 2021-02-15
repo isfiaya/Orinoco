@@ -7,7 +7,7 @@ nav {
       text-decoration: none;
       color: black;
       font-weight: 500;
-      font-size: 25px;
+      font-size: 20px;
     }
     a:hover {
       color: #cf7d45;
@@ -42,13 +42,13 @@ nav {
 .cartNum {
   position: absolute;
   height: 18px;
-  width: 15px;
+  width: 16px;
   background: #ffffff;
   border-radius: 20px;
-  top: 1px;
+  top: -2px;
   color: #cc7b4e;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 18px;
-  right: -7px;
-  padding-left: 1px;
+  right: -8px;
+  text-align: center;
 }

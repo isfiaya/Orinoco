@@ -4,5 +4,23 @@ $btnColor: linear-gradient(
   rgba(207, 125, 69, 1) 74%
 );
 body {
-  font-family: "Caveat", cursive;
+  font-family: "Lora", serif;
+  font-style: italic;
+}
+%btn {
+  font-size: 0.8rem;
+  border-radius: 20px;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 30px;
+  margin-top: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: $btnColor;
+  border: none;
+  cursor: pointer;
+  outline-style: none;
+  transition: all 0.2s;
+  display: block;
+  font-style: italic;
 }

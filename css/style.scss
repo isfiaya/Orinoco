@@ -31,10 +31,10 @@
     text-transform: uppercase;
     background: $btnColor;
     border: none;
-    letter-spacing: 3px;
+    font-style: italic;
     outline-style: none;
     border-radius: 20px;
-    transition: all 0.2s ease-in;
+    transition: all 0.2s;
   }
   button:hover {
     letter-spacing: 5px;
@@ -79,5 +79,6 @@ h2 {
   }
   img:hover {
     opacity: 1;
+    transform: translateY(-10px);
   }
 }

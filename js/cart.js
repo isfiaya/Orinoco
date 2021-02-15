@@ -6,6 +6,7 @@ let mailAddress = document.getElementById('E-mail');
 let address = document.getElementById('address');
 let city = document.getElementById('City');
 let invalidFeedback = document.querySelectorAll("p.invalid-feedback");
+let submitButton = document.getElementById('btnsubmit');
 // initialise Validation Boolean TO False
 let isFirstNameValid = false;
 let isLastNameValid = false;
@@ -24,7 +25,7 @@ let isCityValid = false;
  * - Checkout Form
  */
 
-let submitButton = document.getElementById('btnsubmit');
+
 let orderId;
 
 function init() {
@@ -55,7 +56,6 @@ function showCartItems() {
     let price = priceString.substring(0, 3);
     let priceNum = parseInt(price);
 
-
     // Get each cart item values
     nameCell.innerHTML = cartArray[i].name;
     lenseCell.innerHTML = cartArray[i].selectLenses;
@@ -72,6 +72,7 @@ function showCartItems() {
     tr.append(divName, lenseCell, qunatity, priceCell, btnRemove);
     cartItemsWrapper.appendChild(tr);
   }
+  emptyCart()
   addNumCart()
 }
 
@@ -90,9 +91,6 @@ function calculateTotalCartPrice() {
   let cartArray = JSON.parse(localStorage.getItem('cart'));
   let total = document.getElementById('total');
   let totalCartPrice = 0;
-
-
-
 
   for (let i = 0; i < cartArray.length; i++) {
     // Convert number
@@ -176,41 +174,7 @@ function makeRequest(data) {
   }).catch((err) => {
     console.log(err);
   })
-
-
-  // return new Promise((resolve, reject) => {
-  //   let request = new XMLHttpRequest();
-  //   request.open('POST', 'http://localhost:3000/api/cameras/order');
-  //   request.onreadystatechange = () => {
-  //     if (request.readyState === 4) {
-  //       if (request.status === 201) {
-  //         resolve(JSON.parse(request.response));
-  //         let promiseResponse = JSON.parse(request.response);
-  //         console.log(promiseResponse);
-  //         orderId = promiseResponse.orderId;
-  //         sessionStorage.setItem("data", orderId);
-  //       }
-  //     } else {
-  //       reject(
-  //         console.log('something wrong')
-  //       );
-  //     }
-  //   };
-  //   request.setRequestHeader('Content-type', 'application/json');
-  //   request.send(JSON.stringify(Data));
-  // });
 };
-
-// async function submitFormData(post) {
-//   try {
-//     const requestPromise = makeRequest(post);
-//     const response = await requestPromise;
-//     orderId = response.orderId;
-//     sessionStorage.setItem("data", JSON.stringify(orderId));
-//   } catch (errorResponse) {
-//     console.log(errorResponse);
-//   }
-// }
 
 
 //firstName Validation
@@ -281,6 +245,24 @@ function addNumCart() {
   let cartItemsArray = JSON.parse(localStorageContent);
   let cartNum = document.getElementById('cartNum');
   cartNum.innerHTML = cartItemsArray.length;
+}
+
+//show empty bag when cart egal 0
+function emptyCart() {
+  let container = document.getElementById('container');
+  let cartArray = JSON.parse(localStorage.getItem('cart'));
+  if (cartArray.length === 0) {
+    container.innerHTML = `<div class="emptyCart">
+<div class="emptyCart-img">
+<img src="images/emptyCart.png" alt="empty cart">
+</div>
+<div>
+  <h1>Hey, it feels so light!</h1>
+  <p>There is nothing in your Cart. let's add some items.</p>
+  <button>Start Shopping</button>
+</div>
+</div>`;
+  }
 }
 
 init();

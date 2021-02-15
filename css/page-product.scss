@@ -35,14 +35,29 @@
     text-transform: uppercase;
     background: $btnColor;
     border: none;
-    letter-spacing: 3px;
+    font-style: italic;
     cursor: pointer;
     outline-style: none;
     transition: all 0.2s ease-in;
     display: block;
+    position: relative;
+
+    img {
+      width: 27px;
+      height: 38px;
+      position: absolute;
+      left: 12px;
+      top: 2px;
+      opacity: 0;
+      visibility: hidden;
+    }
   }
   button:hover {
-    letter-spacing: 5px;
+    width: 220px;
+    img {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
 

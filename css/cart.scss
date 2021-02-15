@@ -49,13 +49,14 @@ label {
     font-size: 0.8rem;
     margin-top: 30px;
     border-radius: 20px;
-    letter-spacing: 3px;
+    font-style: italic;
     background: $btnColor;
     border: white;
     outline-style: none;
     padding: 10px 30px;
     text-transform: uppercase;
-    transition: all 0.2s ease-in;
+    color: white;
+    transition: all 0.2s;
   }
   button:hover {
     letter-spacing: 5px;
@@ -88,4 +89,28 @@ label {
 }
 h1 {
   text-align: center;
+}
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  &-img {
+    width: 146px;
+    height: 165px;
+    img {
+      width: 100%;
+    }
+  }
+  button {
+    @extend %btn;
+    margin: auto;
+  }
+  button:hover {
+    letter-spacing: 5px;
+  }
+  p {
+    font-size: 25px;
+  }
 }

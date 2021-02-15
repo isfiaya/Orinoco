@@ -76,7 +76,7 @@ nav ul li a {
   text-decoration: none;
   color: black;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 nav ul li a:hover {
@@ -120,19 +120,20 @@ nav ul li a:hover {
 .cartNum {
   position: absolute;
   height: 18px;
-  width: 15px;
+  width: 16px;
   background: #ffffff;
   border-radius: 20px;
-  top: 1px;
+  top: -2px;
   color: #cc7b4e;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 18px;
-  right: -7px;
-  padding-left: 1px;
+  right: -8px;
+  text-align: center;
 }
 
 body {
-  font-family: "Caveat", cursive;
+  font-family: "Lora", serif;
+  font-style: italic;
 }
 
 * {
@@ -182,16 +183,32 @@ body {
   text-transform: uppercase;
   background: linear-gradient(221deg, #8f5bfb 0%, #cf7d45 74%);
   border: none;
-  letter-spacing: 3px;
+  font-style: italic;
   cursor: pointer;
   outline-style: none;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   display: block;
+  position: relative;
+}
+
+.description button img {
+  width: 27px;
+  height: 38px;
+  position: absolute;
+  left: 12px;
+  top: 2px;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .description button:hover {
-  letter-spacing: 5px;
+  width: 220px;
+}
+
+.description button:hover img {
+  opacity: 1;
+  visibility: visible;
 }
 
 .content {

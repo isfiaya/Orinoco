@@ -10,7 +10,7 @@ nav ul li a {
   text-decoration: none;
   color: black;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 nav ul li a:hover {
@@ -54,15 +54,15 @@ nav ul li a:hover {
 .cartNum {
   position: absolute;
   height: 18px;
-  width: 15px;
+  width: 16px;
   background: #ffffff;
   border-radius: 20px;
-  top: 1px;
+  top: -2px;
   color: #cc7b4e;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 18px;
-  right: -7px;
-  padding-left: 1px;
+  right: -8px;
+  text-align: center;
 }
 
 footer {
@@ -132,7 +132,27 @@ footer .copyright {
 }
 
 body {
-  font-family: "Caveat", cursive;
+  font-family: "Lora", serif;
+  font-style: italic;
+}
+
+.emptyCart button {
+  font-size: 0.8rem;
+  border-radius: 20px;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 30px;
+  margin-top: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: linear-gradient(221deg, #8f5bfb 0%, #cf7d45 74%);
+  border: none;
+  cursor: pointer;
+  outline-style: none;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  display: block;
+  font-style: italic;
 }
 
 table {
@@ -201,14 +221,15 @@ label {
   font-size: 0.8rem;
   margin-top: 30px;
   border-radius: 20px;
-  letter-spacing: 3px;
+  font-style: italic;
   background: linear-gradient(221deg, #8f5bfb 0%, #cf7d45 74%);
   border: white;
   outline-style: none;
   padding: 10px 30px;
   text-transform: uppercase;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  color: white;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .submit-order button:hover {
@@ -251,5 +272,43 @@ label {
 
 h1 {
   text-align: center;
+}
+
+.emptyCart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 400px;
+}
+
+.emptyCart-img {
+  width: 146px;
+  height: 165px;
+}
+
+.emptyCart-img img {
+  width: 100%;
+}
+
+.emptyCart button {
+  margin: auto;
+}
+
+.emptyCart button:hover {
+  letter-spacing: 5px;
+}
+
+.emptyCart p {
+  font-size: 25px;
 }
 /*# sourceMappingURL=cart.css.map */

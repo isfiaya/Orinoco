@@ -50,7 +50,7 @@
 
 .product .content .desc {
   margin-bottom: 20px;
-  font-size: 19px;
+  font-size: 20px;
 }
 
 .product .content .price {
@@ -106,7 +106,7 @@
 }
 
 .banner__content > p {
-  font-size: 25px;
+  font-size: 20px;
   color: #fff;
 }
 
@@ -121,11 +121,11 @@
   text-transform: uppercase;
   background: linear-gradient(221deg, #8f5bfb 0%, #cf7d45 74%);
   border: none;
-  letter-spacing: 3px;
+  font-style: italic;
   cursor: pointer;
   outline-style: none;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .btn-hero a {
@@ -235,7 +235,7 @@ nav ul li a {
   text-decoration: none;
   color: black;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 nav ul li a:hover {
@@ -279,19 +279,20 @@ nav ul li a:hover {
 .cartNum {
   position: absolute;
   height: 18px;
-  width: 15px;
+  width: 16px;
   background: #ffffff;
   border-radius: 20px;
-  top: 1px;
+  top: -2px;
   color: #cc7b4e;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 18px;
-  right: -7px;
-  padding-left: 1px;
+  right: -8px;
+  text-align: center;
 }
 
 body {
-  font-family: "Caveat", cursive;
+  font-family: "Lora", serif;
+  font-style: italic;
 }
 
 .bd-placeholder-img {
@@ -330,11 +331,11 @@ body {
   text-transform: uppercase;
   background: linear-gradient(221deg, #8f5bfb 0%, #cf7d45 74%);
   border: none;
-  letter-spacing: 3px;
+  font-style: italic;
   outline-style: none;
   border-radius: 20px;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .btn-ViewAll button:hover {
@@ -387,5 +388,7 @@ h2 span {
 
 .move-up-cursor img:hover {
   opacity: 1;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
 }
 /*# sourceMappingURL=style.css.map */

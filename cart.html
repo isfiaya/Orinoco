@@ -31,7 +31,7 @@
 
             <a class="cartWrapper" href="cart.html">Cart
               <img src="images/shopping-cart.svg" alt="cart icon" class="cartIcon">
-              <span class="cartNum" id="cartNum"></span></a>
+              <span class="cartNum" id="cartNum">0</span></a>
           </li>
 
         </ul>
@@ -39,7 +39,7 @@
 
     </div>
   </nav>
-  <div class="container">
+  <div class="container" id="container">
     <h1>Items in your Cart</h1>
     <table id="cart_items">
       <tr>
@@ -48,24 +48,11 @@
         <th>Quantity</th>
         <th>Price</th>
       </tr>
-
-      <!-- <tr>
-				<td>Alfreds Futterkiste</td>
-				<td>Maria Anders</td>
-				<td>333$</td>
-				<td class="btn-del"><button>X</button></td>
-			</tr> -->
-      <!-- <tr>
-				<th colspan="2">TOTAL</th>
-				<td>999$</td>
-			</tr> -->
-
     </table>
     <div class="total">
       <p>TOTAL =</p>
       <p class="total-price" id="total"> 0$</p>
     </div>
-
     <div class="submit-order">
       <h2>Submit Order</h2>
       <form action="" class="row">
@@ -96,7 +83,7 @@
         </div>
 
       </form>
-      <button type="submit" class="btn btn-primary" id="btnsubmit">Submit Order</button>
+      <button type="submit" id="btnsubmit">Submit Order</button>
     </div>
   </div>
 

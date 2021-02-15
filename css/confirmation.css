@@ -64,6 +64,30 @@ footer .copyright {
   border-radius: 50%;
 }
 
+body {
+  font-family: "Lora", serif;
+  font-style: italic;
+}
+
+main div button {
+  font-size: 0.8rem;
+  border-radius: 20px;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 30px;
+  margin-top: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: linear-gradient(221deg, #8f5bfb 0%, #cf7d45 74%);
+  border: none;
+  cursor: pointer;
+  outline-style: none;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  display: block;
+  font-style: italic;
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -99,5 +123,9 @@ main header h1 {
 main div {
   padding: 30px;
   font-size: 20px;
+}
+
+main div button {
+  margin: auto;
 }
 /*# sourceMappingURL=confirmation.css.map */
