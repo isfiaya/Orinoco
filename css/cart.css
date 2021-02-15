@@ -10,11 +10,11 @@ nav ul li a {
   text-decoration: none;
   color: black;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 25px;
 }
 
 nav ul li a:hover {
-  color: #ff0157;
+  color: #cf7d45;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
@@ -43,12 +43,26 @@ nav ul li a:hover {
           box-shadow: none !important;
 }
 
+.cartWrapper {
+  position: relative;
+}
+
+.cartIcon {
+  width: 23px;
+}
+
 .cartNum {
-  border-radius: 27%;
-  width: 41px;
-  padding: 3px;
-  margin-left: 5px;
-  color: red;
+  position: absolute;
+  height: 18px;
+  width: 15px;
+  background: #ffffff;
+  border-radius: 20px;
+  top: 1px;
+  color: #cc7b4e;
+  font-size: 20px;
+  line-height: 18px;
+  right: -7px;
+  padding-left: 1px;
 }
 
 footer {
@@ -101,20 +115,24 @@ footer ul li a {
 }
 
 footer ul li a:hover {
-  color: #ff0157;
+  color: #cf7d45;
   opacity: 1;
 }
 
 footer .copyright {
   margin-top: 15px;
   text-align: center;
-  font-size: 13px;
-  color: #e24848;
+  font-size: 17px;
+  color: #9d63d2;
 }
 
 .img-insta {
   width: 100%;
   border-radius: 50%;
+}
+
+body {
+  font-family: "Caveat", cursive;
 }
 
 table {
@@ -180,8 +198,21 @@ label {
 }
 
 .submit-order button {
+  font-size: 0.8rem;
   margin-top: 30px;
-  border-radius: 10px;
+  border-radius: 20px;
+  letter-spacing: 3px;
+  background: linear-gradient(221deg, #8f5bfb 0%, #cf7d45 74%);
+  border: white;
+  outline-style: none;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.submit-order button:hover {
+  letter-spacing: 5px;
 }
 
 .required {

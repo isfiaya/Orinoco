@@ -1,8 +1,11 @@
 @import "_footer.scss";
 @import "_nav.scss";
+@import "_utilities.scss";
+
 * {
   box-sizing: border-box;
 }
+
 .checked {
   color: orange;
 }
@@ -16,11 +19,30 @@
   justify-content: space-between;
   label {
     padding-right: 20px;
+    font-size: 20px;
+  }
+  select {
+    font-size: 16px;
   }
   button {
-    margin-top: 15px;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: $btnColor;
+    border: none;
+    letter-spacing: 3px;
+    cursor: pointer;
+    outline-style: none;
+    transition: all 0.2s ease-in;
     display: block;
-    width: 100%;
+  }
+  button:hover {
+    letter-spacing: 5px;
   }
 }
 
@@ -55,4 +77,13 @@
 }
 .addtocart {
   border-radius: 20px;
+  background: $btnColor;
+  border: white;
+}
+.price {
+  font-size: 25px;
+  font-weight: 500;
+}
+.desc {
+  font-size: 20px;
 }

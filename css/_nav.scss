@@ -7,10 +7,10 @@ nav {
       text-decoration: none;
       color: black;
       font-weight: 500;
-      font-size: 18px;
+      font-size: 25px;
     }
     a:hover {
-      color: #ff0157;
+      color: #cf7d45;
       transform: scale(1.2);
     }
   }
@@ -33,10 +33,22 @@ nav {
     box-shadow: none !important;
   }
 }
+.cartWrapper {
+  position: relative;
+}
+.cartIcon {
+  width: 23px;
+}
 .cartNum {
-  border-radius: 27%;
-  width: 41px;
-  padding: 3px;
-  margin-left: 5px;
-  color: red;
+  position: absolute;
+  height: 18px;
+  width: 15px;
+  background: #ffffff;
+  border-radius: 20px;
+  top: 1px;
+  color: #cc7b4e;
+  font-size: 20px;
+  line-height: 18px;
+  right: -7px;
+  padding-left: 1px;
 }

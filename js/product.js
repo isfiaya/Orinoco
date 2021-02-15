@@ -1,7 +1,7 @@
 'use strict';
 
 // DOM ELEMENT REFERENCES
-let nameElem = document.querySelector('h2');
+let nameElem = document.querySelector('h1');
 let imageElem = document.getElementById('picture');
 let priceElem = document.getElementById('price');
 let descElem = document.getElementById('desc');
@@ -48,7 +48,8 @@ function showProduct(data) {
   // Cache Data Values
   let name = data.name;
   let description = data.description;
-  let price = data.price;
+  let priceString = data.price.toString();
+  let price = priceString.substring(0, 3);
   let imageUrl = data.imageUrl;
   let lenses = data.lenses;
 

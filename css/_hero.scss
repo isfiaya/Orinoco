@@ -1,3 +1,9 @@
+$btnColor: linear-gradient(
+  221deg,
+  rgba(143, 91, 251, 1) 0%,
+  rgba(207, 125, 69, 1) 74%
+);
+
 .banner {
   position: relative;
   background-image: url(../images/vcam_1.jpg);
@@ -12,6 +18,7 @@
 .banner__content {
   max-width: 900px;
   text-align: center;
+  position: relative;
 }
 
 .banner__content > h1 {
@@ -20,24 +27,29 @@
 }
 
 .banner__content > p {
-  font-size: 1em;
+  font-size: 25px;
   color: #fff;
 }
 
 .btn-hero {
   font-size: 0.8rem;
+  border-radius: 20px;
   color: #fff;
   display: inline-block;
   padding: 10px 30px;
   margin-top: 20px;
   text-decoration: none;
   text-transform: uppercase;
-  background-color: #ff0157;
+  background: $btnColor;
   border: none;
   letter-spacing: 3px;
   cursor: pointer;
   outline-style: none;
   transition: all 0.2s ease-in;
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .btn-hero:hover {

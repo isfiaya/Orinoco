@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="css/page-product.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="images/orinoco-favicon.png" type="image/x-icon">
   <title>Orinoco</title>
 
@@ -18,9 +19,7 @@
 
       <a class="navbar-brand " href="index.html">
         <img src="/images/Orinoco-removebg-preview.jpg" alt="Logo Orinoco" class="logo ">
-
       </a>
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,14 +30,12 @@
             <a class="active" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="" href="cart.html">Cart <span id="cartNum" class="cartNum"></span></a>
+
+            <a class="cartWrapper" href="cart.html">Cart
+              <img src="images/shopping-cart.svg" alt="cart icon" class="cartIcon">
+              <span class="cartNum" id="cartNum"></span></a>
           </li>
-          <li class="nav-item">
-            <a class="" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="" href="#">Contact</a>
-          </li>
+
         </ul>
       </div>
 
@@ -55,9 +52,9 @@
           </content>
       </div>
       <div class="col-12 col-md-6 description">
-        <h2></h2>
-        <p id="price"></p>
-        <p id='desc'></p>
+        <h1></h1>
+        <p id="price" class="price"></p>
+        <p id='desc' class="desc"></p>
         <div class="d-flex">
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>

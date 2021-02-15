@@ -5,10 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.79.0">
   <link href="/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="images/orinoco-favicon.png" type="image/x-icon">
   <title>Orinoco</title>
 
@@ -22,13 +21,7 @@
 
       <a class="navbar-brand " href="index.html">
         <img src="/images/Orinoco-removebg-preview.jpg" alt="Logo Orinoco" class="logo ">
-
       </a>
-
-      <svg viewBox="0 0 24 24" class="ic" width="24" height="24">
-        <use xlink:href="https://www.jumia.com.tn/assets_he/images/i-icons.e6412588.svg#shopping-cart"></use>
-      </svg>
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,21 +33,18 @@
           </li>
           <li class="nav-item">
 
-            <a class="" href="cart.html">Cart<span class="cartNum" id="cartNum"></span></a>
+            <a class="cartWrapper" href="cart.html">Cart
+              <img src="images/shopping-cart.svg" alt="cart icon" class="cartIcon">
+              <span class="cartNum" id="cartNum"></span></a>
           </li>
-          <li class="nav-item">
-            <a class="" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="" href="#">Contact</a>
-          </li>
+
         </ul>
       </div>
 
     </div>
   </nav>
   <header id="banner" class="banner">
-
+    <div class="overlay"></div>
     <div class="banner__content">
       <h1>Always Choose Good</h1>
       <p>
@@ -63,9 +53,10 @@
         odit quos et sunt laboriosam eum tenetur doloremque totam porro veniam
         harum earum quis distinctio incidunt quidem soluta. Ex, rem similique.
       </p>
-      <button class="btn-hero">Our Menu</button>
+      <button class="btn-hero"> <a href="#products">Our Menu</a> </button>
     </div>
   </header>
+
   <div class="album py-5 bg-light">
     <div class="container">
       <h2 class="text-center pb-5">our <span>C</span>amera</h2>
@@ -75,10 +66,12 @@
     </div>
   </div>
   </div>
-
+  <div class="move-up-cursor" id="move-up-cursor" onclick="topFunction()">
+    <img src="images/angle-double-up-solid.svg" alt="move up cursor" class="go-top">
+  </div>
 
   <footer>
-    <div class="social">
+    <div class=" social">
       <a href="www.facebook.com"><img src="images/facebook.svg" alt="facebook"></a>
       <a href="www.instagram.com"><img src="images/instagram.svg" alt="instagram" class="img-insta"></a>
       <a href="www.twitter.com"><img src="images/twitter.svg" alt="twitter"></a>

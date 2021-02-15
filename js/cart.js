@@ -50,10 +50,16 @@ function showCartItems() {
     let divName = document.createElement('td');
     let qunatity = document.createElement('td');
 
+    //convert number
+    let priceString = cartArray[i].price.toString();
+    let price = priceString.substring(0, 3);
+    let priceNum = parseInt(price);
+
+
     // Get each cart item values
     nameCell.innerHTML = cartArray[i].name;
     lenseCell.innerHTML = cartArray[i].selectLenses;
-    priceCell.innerHTML = (cartArray[i].price * cartArray[i].quantity) + ' $';
+    priceCell.innerHTML = (priceNum * cartArray[i].quantity) + ' $';
     imgCell.setAttribute('src', cartArray[i].imageUrl);
 
     btnRemove.innerHTML = `<button class="btn-del" id='remove' onclick='removeItem(${i})'>REMOVE</button>`;
@@ -85,8 +91,15 @@ function calculateTotalCartPrice() {
   let total = document.getElementById('total');
   let totalCartPrice = 0;
 
+
+
+
   for (let i = 0; i < cartArray.length; i++) {
-    let productPrice = cartArray[i].price * cartArray[i].quantity;
+    // Convert number
+    let priceString = cartArray[i].price.toString();
+    let price = priceString.substring(0, 3);
+    let priceNum = parseInt(price);
+    let productPrice = priceNum * cartArray[i].quantity;
     totalCartPrice += productPrice;
   }
 

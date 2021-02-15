@@ -1,5 +1,6 @@
 @import "_nav.scss";
 @import "_footer.scss";
+@import "_utilities.scss";
 
 //table
 table {
@@ -45,8 +46,19 @@ label {
     width: 100%;
   }
   button {
+    font-size: 0.8rem;
     margin-top: 30px;
-    border-radius: 10px;
+    border-radius: 20px;
+    letter-spacing: 3px;
+    background: $btnColor;
+    border: white;
+    outline-style: none;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in;
+  }
+  button:hover {
+    letter-spacing: 5px;
   }
 }
 .required {
