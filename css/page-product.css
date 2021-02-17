@@ -255,6 +255,10 @@ body {
   margin-top: 10px;
 }
 
+.confirme-feedback a {
+  text-decoration: none;
+}
+
 .addtocart {
   border-radius: 20px;
   background: linear-gradient(221deg, #8f5bfb 0%, #cf7d45 74%);

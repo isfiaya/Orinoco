@@ -92,6 +92,9 @@
 .confirme-feedback {
   color: green;
   margin-top: 10px;
+  a {
+    text-decoration: none;
+  }
 }
 .addtocart {
   border-radius: 20px;

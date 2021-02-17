@@ -206,11 +206,19 @@ label {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: #00000021;
+  margin-top: 45px;
 }
 
 .submit-order h2 {
-  margin-bottom: 30px;
-  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background-color: #00000026;
+}
+
+.submit-order form {
+  padding: 20px;
 }
 
 .submit-order input {
@@ -228,6 +236,7 @@ label {
   padding: 10px 30px;
   text-transform: uppercase;
   color: white;
+  margin-bottom: 20px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -256,6 +265,7 @@ label {
   margin: auto;
   border-radius: 40px;
   padding: 13px;
+  min-width: 200px;
 }
 
 .total-price {
@@ -283,6 +293,7 @@ label {
 
 h1 {
   text-align: center;
+  font-size: 28px;
 }
 
 .emptyCart {

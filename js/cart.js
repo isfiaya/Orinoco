@@ -51,6 +51,7 @@ function showCartItems() {
     let divName = document.createElement('td');
     let qunatity = document.createElement('td');
     priceCell.style.color = '#3bc492';
+
     //convert number
     let priceString = cartArray[i].price.toString();
     let price = priceString.substring(0, 3);
@@ -72,7 +73,7 @@ function showCartItems() {
     tr.append(divName, lenseCell, qunatity, priceCell, btnRemove);
     cartItemsWrapper.appendChild(tr);
   }
-
+  emptyCart()
   addNumCart()
 }
 
@@ -257,7 +258,7 @@ function emptyCart() {
     cartArray = JSON.parse(localStorageContent);
   }
 
-  if (cartArray.length === 0) {
+  if (cartArray.length === 0 || localStorageContent === null) {
     container.innerHTML = `<div class="emptyCart">
 <div class="emptyCart-img">
 <img src="images/emptyCart.png" alt="empty cart">
