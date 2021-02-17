@@ -39,7 +39,7 @@ function showCartItems() {
 
   // Empty current items
   cartItemsWrapper.innerHTML = '';
-
+  emptyCart()
   for (let i = 0; i < cartArray.length; i++) {
     let tr = document.createElement('tr');
 
@@ -50,7 +50,7 @@ function showCartItems() {
     let imgCell = document.createElement('img');
     let divName = document.createElement('td');
     let qunatity = document.createElement('td');
-
+    priceCell.style.color = '#3bc492';
     //convert number
     let priceString = cartArray[i].price.toString();
     let price = priceString.substring(0, 3);
@@ -62,7 +62,7 @@ function showCartItems() {
     priceCell.innerHTML = (priceNum * cartArray[i].quantity) + ' $';
     imgCell.setAttribute('src', cartArray[i].imageUrl);
 
-    btnRemove.innerHTML = `<button class="btn-del" id='remove' onclick='removeItem(${i})'>REMOVE</button>`;
+    btnRemove.innerHTML = `<button class="btn-del" id='remove' onclick='removeItem(${i})'>X</button>`;
     qunatity.innerHTML = `<input type="number" id="quantity" name="quantity" min="1" value ="${cartArray[i].quantity}" class="quantity" onclick="changeQuantity(${i}, event.target.value)">`;
 
     divName.append(imgCell, nameCell);
@@ -72,7 +72,7 @@ function showCartItems() {
     tr.append(divName, lenseCell, qunatity, priceCell, btnRemove);
     cartItemsWrapper.appendChild(tr);
   }
-  emptyCart()
+
   addNumCart()
 }
 
@@ -104,7 +104,6 @@ function calculateTotalCartPrice() {
   total.innerHTML = totalCartPrice + " $";
   sessionStorage.setItem('Total', JSON.stringify(totalCartPrice));
 }
-
 
 function removeItem(index) {
   let cartArray = JSON.parse(localStorage.getItem('cart'));
@@ -250,7 +249,14 @@ function addNumCart() {
 //show empty bag when cart egal 0
 function emptyCart() {
   let container = document.getElementById('container');
-  let cartArray = JSON.parse(localStorage.getItem('cart'));
+  let cartArray = [];
+  const localStorageContent = localStorage.getItem('cart');
+  if (localStorageContent === null) {
+    cartArray = [];
+  } else {
+    cartArray = JSON.parse(localStorageContent);
+  }
+
   if (cartArray.length === 0) {
     container.innerHTML = `<div class="emptyCart">
 <div class="emptyCart-img">
@@ -261,7 +267,7 @@ function emptyCart() {
   <p>There is nothing in your Cart. let's add some items.</p>
   <button>Start Shopping</button>
 </div>
-</div>`;
+</div>`
   }
 }
 

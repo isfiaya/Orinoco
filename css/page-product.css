@@ -211,6 +211,12 @@ body {
   visibility: visible;
 }
 
+@media (max-width: 767px) {
+  .description {
+    margin-top: 15px;
+  }
+}
+
 .content {
   border: 1px solid #ccc;
   padding: 5px;

@@ -87,10 +87,10 @@ btnAddToCart.addEventListener('click', () => {
   };
   cartItems.push(singleProduct);
   localStorage.setItem('cart', JSON.stringify(cartItems));
-  document.getElementById('confirme-feedback').innerHTML = `Added to cart. <a href='cart.html'>View Cart</a>`
+  document.getElementById('confirme-feedback').innerHTML = `Added to cart. <a href='cart.html'>View Cart</a>`;
+  // btnAddToCart.innerHTML = `<a href='cart.html'>View Cart</a>`
   addNumCart()
 });
-
 
 // budget cart 
 function addNumCart() {

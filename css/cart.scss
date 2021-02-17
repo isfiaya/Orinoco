@@ -17,9 +17,9 @@ table {
     background-color: #e9ecef8f;
   }
   .btn-del {
-    background-color: #f8f9fa;
+    background-color: #dc353db5;
     border: 1px solid #dfe1e5;
-    color: grey;
+    color: #f8f9fa;
     text-align: center;
     border-radius: 5px;
     outline: none;
@@ -71,8 +71,18 @@ label {
 .total {
   display: flex;
   justify-content: center;
+  background-color: #e9ecef !important;
+  width: 30%;
+  margin: auto;
+  border-radius: 40px;
+  padding: 13px;
   &-price {
     margin-left: 20px;
+    font-weight: 600;
+  }
+  p {
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
 .divImage {
