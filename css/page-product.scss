@@ -19,10 +19,10 @@
   justify-content: space-between;
   label {
     padding-right: 20px;
-    font-size: 20px;
+    font-size: 16px;
   }
   select {
-    font-size: 16px;
+    font-size: 14px;
   }
   button {
     font-size: 0.8rem;
@@ -41,6 +41,7 @@
     transition: all 0.2s ease-in;
     display: block;
     position: relative;
+    width: 160px;
 
     img {
       width: 27px;
@@ -69,6 +70,13 @@
   border: 1px solid #ccc;
   padding: 5px;
   width: 100%;
+  height: 100%;
+  .big-image {
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  }
 }
 .gallary {
   display: flex;
@@ -90,11 +98,33 @@
   opacity: 1;
 }
 .confirme-feedback {
-  color: green;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #00c02b !important;
+  border-color: #009d23 !important;
+  color: #ffffff;
   margin-top: 10px;
+  max-width: 400px;
+  padding: 6px;
+  background: #cccccc;
+  text-align: center;
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, top 0.2s, visibility 0.2s;
   a {
     text-decoration: none;
   }
+}
+.confirme-feedback--visible {
+  top: 20px;
+  opacity: 1;
+  visibility: visible;
 }
 .addtocart {
   border-radius: 20px;
@@ -106,7 +136,8 @@
   font-weight: 500;
 }
 .desc {
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 100;
 }
 // .viewCart {
 //   text-decoration: none;

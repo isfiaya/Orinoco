@@ -87,8 +87,15 @@ btnAddToCart.addEventListener('click', () => {
   };
   cartItems.push(singleProduct);
   localStorage.setItem('cart', JSON.stringify(cartItems));
-  document.getElementById('confirme-feedback').innerHTML = `Added to cart. <a href='cart.html'>View Cart</a>`;
-  // btnAddToCart.innerHTML = `<a href='cart.html'>View Cart</a>`
+
+  // add Toast
+  let confirme = document.getElementById('confirme-feedback');
+  confirme.innerHTML = `Added to cart. <a href='cart.html'>View Cart</a>`;
+  confirme.classList.add('confirme-feedback--visible');
+  confirme.hideTimeout = setTimeout(() => {
+    confirme.classList.remove('confirme-feedback--visible');
+  }, 3000);
+
   addNumCart()
 });
 
