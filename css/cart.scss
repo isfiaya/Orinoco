@@ -38,23 +38,30 @@ label {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #00000021;
-  margin-top: 45px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin: 45px auto 0;
+  max-width: 600px;
   h2 {
     width: 100%;
     text-align: center;
     padding: 20px;
-    background-color: #00000026;
   }
   form {
-    padding: 20px;
+    padding: 0 40px 10px 40px;
   }
   input {
     width: 100%;
+    border: 0;
+    border-bottom: 1px solid #969595;
+    padding: 5px;
+    margin: 10px;
+  }
+  p {
+    padding-left: 15px;
   }
   button {
     font-size: 0.8rem;
-    margin-top: 30px;
+    margin-top: 10px;
     border-radius: 20px;
     font-style: italic;
     background: $btnColor;
@@ -63,7 +70,7 @@ label {
     padding: 10px 30px;
     text-transform: uppercase;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     transition: all 0.2s;
   }
   button:hover {

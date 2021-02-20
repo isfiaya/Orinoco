@@ -213,11 +213,11 @@ function makeRequest(data) {
 firstName.addEventListener('blur', () => {
   const regName = /^[a-zA-Z]+$/;
   if (!regName.test(firstName.value)) {
-    firstName.style.border = 'red solid 2px';
+    firstName.style.borderBottom = 'red solid 1px';
     return false;
   }
   else {
-    firstName.style.border = 'green solid 2px';
+    firstName.style.borderBottom = 'green solid 1px';
     isFirstNameValid = true;
   }
 })
@@ -225,11 +225,11 @@ firstName.addEventListener('blur', () => {
 lastName.addEventListener('blur', () => {
   const regName = /^[a-zA-Z]+$/;
   if (!regName.test(lastName.value)) {
-    lastName.style.border = 'red solid 2px';
+    lastName.style.borderBottom = 'red solid 1px';
     return false;
   }
   else {
-    lastName.style.border = 'green solid 2px';
+    lastName.style.borderBottom = 'green solid 1px';
     isLastNameValid = true;
   }
 })
@@ -237,11 +237,11 @@ lastName.addEventListener('blur', () => {
 mailAddress.addEventListener('blur', () => {
   const regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   if (!regEmail.test(mailAddress.value)) {
-    mailAddress.style.border = 'red solid 2px';
+    mailAddress.style.borderBottom = 'red solid 1px';
     return false;
   }
   else {
-    mailAddress.style.border = 'green solid 2px';
+    mailAddress.style.borderBottom = 'green solid 1px';
     isEmailValid = true;
   }
 })
@@ -249,11 +249,11 @@ mailAddress.addEventListener('blur', () => {
 address.addEventListener('blur', () => {
   const regAddress = /^\s*\S+(?:\s+\S+){2}/;
   if (!regAddress.test(address.value)) {
-    address.style.border = 'red solid 2px';
+    address.style.borderBottom = 'red solid 1px';
     return false;
   }
   else {
-    address.style.border = 'green solid 2px';
+    address.style.borderBottom = 'green solid 1px';
     isAddressValid = true;
   }
 })
@@ -261,11 +261,11 @@ address.addEventListener('blur', () => {
 city.addEventListener('blur', () => {
   const regName = /^[a-zA-Z]+$/;
   if (!regName.test(city.value)) {
-    city.style.border = 'red solid 2px';
+    city.style.borderBottom = 'red solid 1px';
     return false;
   }
   else {
-    city.style.border = 'green solid 2px';
+    city.style.borderBottom = 'green solid 1px';
     isCityValid = true;
   }
 })

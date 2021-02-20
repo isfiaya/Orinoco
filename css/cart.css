@@ -206,28 +206,37 @@ label {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #00000021;
-  margin-top: 45px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin: 45px auto 0;
+  max-width: 600px;
 }
 
 .submit-order h2 {
   width: 100%;
   text-align: center;
   padding: 20px;
-  background-color: #00000026;
 }
 
 .submit-order form {
-  padding: 20px;
+  padding: 0 40px 10px 40px;
 }
 
 .submit-order input {
   width: 100%;
+  border: 0;
+  border-bottom: 1px solid #969595;
+  padding: 5px;
+  margin: 10px;
+}
+
+.submit-order p {
+  padding-left: 15px;
 }
 
 .submit-order button {
   font-size: 0.8rem;
-  margin-top: 30px;
+  margin-top: 10px;
   border-radius: 20px;
   font-style: italic;
   background: linear-gradient(221deg, #8f5bfb 0%, #cf7d45 74%);
@@ -236,7 +245,7 @@ label {
   padding: 10px 30px;
   text-transform: uppercase;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
