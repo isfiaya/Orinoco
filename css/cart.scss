@@ -133,11 +133,16 @@ h1 {
   button {
     @extend %btn;
     margin: auto;
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
   button:hover {
     letter-spacing: 5px;
   }
   p {
-    font-size: 25px;
+    font-size: 18px;
+    text-align: center;
   }
 }

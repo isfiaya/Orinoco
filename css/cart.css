@@ -335,11 +335,17 @@ h1 {
   margin: auto;
 }
 
+.emptyCart button a {
+  color: white;
+  text-decoration: none;
+}
+
 .emptyCart button:hover {
   letter-spacing: 5px;
 }
 
 .emptyCart p {
-  font-size: 25px;
+  font-size: 18px;
+  text-align: center;
 }
 /*# sourceMappingURL=cart.css.map */

@@ -304,7 +304,7 @@ function emptyCart(cartItemsWrapper) {
 <div>
   <h1>Hey, it feels so light!</h1>
   <p>There is nothing in your Cart. let's add some items.</p>
-  <button>Start Shopping</button>
+  <button><a href="index.html">Start Shopping</a></button>
 </div>
 </div>`
   }
