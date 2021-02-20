@@ -36,7 +36,7 @@ function init() {
 function showCartItems() {
   const cartItemsWrapper = document.getElementById('cart_items');
   let cartArray = JSON.parse(localStorage.getItem('cart'));
-
+  console.log(cartItemsWrapper);
   // Empty current items
   emptyCart(cartItemsWrapper)
 
