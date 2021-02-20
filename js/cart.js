@@ -38,42 +38,45 @@ function showCartItems() {
   let cartArray = JSON.parse(localStorage.getItem('cart'));
 
   // Empty current items
-  cartItemsWrapper.innerHTML = '';
-  emptyCart()
-  for (let i = 0; i < cartArray.length; i++) {
-    let tr = document.createElement('tr');
+  emptyCart(cartItemsWrapper)
 
-    let nameCell = document.createElement('p');
-    let lenseCell = document.createElement('td');
-    let priceCell = document.createElement('td');
-    let btnRemove = document.createElement('td');
-    let imgCell = document.createElement('img');
-    let divName = document.createElement('td');
-    let qunatity = document.createElement('td');
-    priceCell.style.color = '#3bc492';
+  // Create cart table  
+  if (cartArray) {
+    for (let i = 0; i < cartArray.length; i++) {
+      let tr = document.createElement('tr');
 
-    //convert number
-    let priceString = cartArray[i].price.toString();
-    let price = priceString.substring(0, 3);
-    let priceNum = parseInt(price);
+      let nameCell = document.createElement('p');
+      let lenseCell = document.createElement('td');
+      let priceCell = document.createElement('td');
+      let btnRemove = document.createElement('td');
+      let imgCell = document.createElement('img');
+      let divName = document.createElement('td');
+      let qunatity = document.createElement('td');
+      priceCell.style.color = '#3bc492';
 
-    // Get each cart item values
-    nameCell.innerHTML = cartArray[i].name;
-    lenseCell.innerHTML = cartArray[i].selectLenses;
-    priceCell.innerHTML = (priceNum * cartArray[i].quantity) + ' $';
-    imgCell.setAttribute('src', cartArray[i].imageUrl);
+      //convert number
+      let priceString = cartArray[i].price.toString();
+      let price = priceString.substring(0, 3);
+      let priceNum = parseInt(price);
 
-    btnRemove.innerHTML = `<button class="btn-del" id='remove' onclick='removeItem(${i})'>X</button>`;
-    qunatity.innerHTML = `<input type="number" id="quantity" name="quantity" min="1" value ="${cartArray[i].quantity}" class="quantity" onclick="changeQuantity(${i}, event.target.value)">`;
+      // Get each cart item values
+      nameCell.innerHTML = cartArray[i].name;
+      lenseCell.innerHTML = cartArray[i].selectLenses;
+      priceCell.innerHTML = (priceNum * cartArray[i].quantity) + ' $';
+      imgCell.setAttribute('src', cartArray[i].imageUrl);
 
-    divName.append(imgCell, nameCell);
-    divName.classList.add('divImage');
+      btnRemove.innerHTML = `<button class="btn-del" id='remove' onclick='removeItem(${i})'>X</button>`;
+      qunatity.innerHTML = `<input type="number" id="quantity" name="quantity" min="1" value ="${cartArray[i].quantity}" class="quantity" onclick="changeQuantity(${i}, event.target.value)">`;
 
-    // Create cart item row & add it to table
-    tr.append(divName, lenseCell, qunatity, priceCell, btnRemove);
-    cartItemsWrapper.appendChild(tr);
+      divName.append(imgCell, nameCell);
+      divName.classList.add('divImage');
+
+      // Create cart item row & add it to table
+      tr.append(divName, lenseCell, qunatity, priceCell, btnRemove);
+      cartItemsWrapper.appendChild(tr);
+    }
   }
-  emptyCart()
+
   addNumCart()
 }
 
@@ -92,18 +95,22 @@ function calculateTotalCartPrice() {
   let cartArray = JSON.parse(localStorage.getItem('cart'));
   let total = document.getElementById('total');
   let totalCartPrice = 0;
-
-  for (let i = 0; i < cartArray.length; i++) {
-    // Convert number
-    let priceString = cartArray[i].price.toString();
-    let price = priceString.substring(0, 3);
-    let priceNum = parseInt(price);
-    let productPrice = priceNum * cartArray[i].quantity;
-    totalCartPrice += productPrice;
+  if (cartArray) {
+    for (let i = 0; i < cartArray.length; i++) {
+      // Convert number
+      let priceString = cartArray[i].price.toString();
+      let price = priceString.substring(0, 3);
+      let priceNum = parseInt(price);
+      let productPrice = priceNum * cartArray[i].quantity;
+      totalCartPrice += productPrice;
+    }
   }
 
-  total.innerHTML = totalCartPrice + " $";
-  sessionStorage.setItem('Total', JSON.stringify(totalCartPrice));
+  // If no cart products added, "total" element won't exist. Check first before setting the value
+  if (total) {
+    total.innerHTML = totalCartPrice + " $";
+    sessionStorage.setItem('Total', JSON.stringify(totalCartPrice));
+  }
 }
 
 function removeItem(index) {
@@ -143,11 +150,36 @@ submitButton.addEventListener('click', ($event) => {
   console.log(data);
   if (isFirstNameValid && isLastNameValid && isEmailValid && isAddressValid && isCityValid) {
     makeRequest(data);
-    // location.replace('confirmation.html');
-  } else {
-    for (let i = 0; i < invalidFeedback.length; i++) {
-      invalidFeedback[i].style.display = 'block';
-    }
+  }
+  if (isFirstNameValid === false) {
+    invalidFeedback[0].style.display = 'block';
+  }
+  if (isFirstNameValid === true) {
+    invalidFeedback[0].style.display = 'none';
+  }
+  if (isLastNameValid === false) {
+    invalidFeedback[1].style.display = 'block';
+  }
+  if (isLastNameValid === true) {
+    invalidFeedback[1].style.display = 'none';
+  }
+  if (isEmailValid === false) {
+    invalidFeedback[2].style.display = 'block';
+  }
+  if (isEmailValid === true) {
+    invalidFeedback[2].style.display = 'none';
+  }
+  if (isAddressValid === false) {
+    invalidFeedback[3].style.display = 'block';
+  }
+  if (isAddressValid === true) {
+    invalidFeedback[3].style.display = 'none';
+  }
+  if (isCityValid === false) {
+    invalidFeedback[4].style.display = 'block';
+  }
+  if (isCityValid === true) {
+    invalidFeedback[4].style.display = 'none';
   }
 });
 
@@ -244,11 +276,17 @@ function addNumCart() {
   const localStorageContent = localStorage.getItem('cart');
   let cartItemsArray = JSON.parse(localStorageContent);
   let cartNum = document.getElementById('cartNum');
-  cartNum.innerHTML = cartItemsArray.length;
+  if (cartItemsArray) {
+    cartNum.innerHTML = cartItemsArray.length;
+  }
 }
 
 //show empty bag when cart egal 0
-function emptyCart() {
+function emptyCart(cartItemsWrapper) {
+  // Empty current cart table items
+  cartItemsWrapper.innerHTML = '';
+
+  // Show empty cart page if no products exist
   let container = document.getElementById('container');
   let cartArray = [];
   const localStorageContent = localStorage.getItem('cart');

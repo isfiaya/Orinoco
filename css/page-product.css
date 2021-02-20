@@ -1,5 +1,5 @@
 footer {
-  background-color: #e9ecef;
+  background-color: #fafbfc;
   color: #4b4c4d;
   padding-bottom: 10px;
   padding-top: 30px;
@@ -146,8 +146,8 @@ body {
 }
 
 .container {
-  margin-bottom: 40px;
-  margin-top: 40px;
+  margin-bottom: 80px;
+  margin-top: 80px;
 }
 
 .description {
@@ -219,10 +219,20 @@ body {
 }
 
 .content {
-  border: 1px solid #ccc;
-  padding: 5px;
   width: 100%;
   height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.content .background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 85%;
+  background-color: #e9ecef;
+  height: 100%;
+  border-top-right-radius: 80px;
 }
 
 .content .big-image {
@@ -230,7 +240,15 @@ body {
 }
 
 .content .big-image img {
-  height: 100%;
+  width: 100%;
+  height: 70%;
+  margin-top: 35px;
+  -webkit-transform: rotateX(0deg) rotateY(30deg) rotateZ(0deg);
+          transform: rotateX(0deg) rotateY(30deg) rotateZ(0deg);
+  -webkit-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+  -webkit-transform: perspective(600px) rotateY(-11deg);
+          transform: perspective(600px) rotateY(-11deg);
 }
 
 .gallary {
@@ -241,10 +259,6 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 20px;
-  width: 100%;
-}
-
-#picture {
   width: 100%;
 }
 
