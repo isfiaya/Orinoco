@@ -92,6 +92,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .banner__content {
@@ -106,8 +108,10 @@
 }
 
 .banner__content > p {
-  font-size: 20px;
+  font-size: 18px;
   color: #fff;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .btn-hero {
