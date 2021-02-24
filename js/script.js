@@ -1,17 +1,19 @@
 'use strict';
 
+// SELECTORS
 let productsContainer = document.getElementById('products');
 let url = 'http://localhost:3000/api/cameras';
 let moveUpCursor = document.getElementById('move-up-cursor');
 
-
+// REQUEST TO PULL DATA FROM API
 async function getProducts() {
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
 
   for (let i = 0; i < data.length; i++) {
     // console.log(data[i]);
+
     // Cache Product Values
     let productId = data[i]._id;
     let name = data[i].name;
@@ -19,7 +21,8 @@ async function getProducts() {
     let priceString = data[i].price.toString();
     let price = priceString.substring(0, 3);
     let imageUrl = data[i].imageUrl;
-    console.log(priceString);
+    // console.log(priceString);
+
     // Create & Append New Product
     let product = document.createElement('div');
     product.classList.add('col');
@@ -53,7 +56,6 @@ function addNumCart() {
     cartNum.innerHTML = cartItemsArray.length;
   }
 }
-
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () { scrollFunction() };

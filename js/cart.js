@@ -33,14 +33,16 @@ function init() {
   calculateTotalCartPrice();
 }
 
+// Create cart content based on customer selection
 function showCartItems() {
   const cartItemsWrapper = document.getElementById('cart_items');
   let cartArray = JSON.parse(localStorage.getItem('cart'));
-  console.log(cartItemsWrapper);
+  // console.log(cartItemsWrapper);
+
   // Empty current items
   emptyCart(cartItemsWrapper)
 
-  // Create cart table  
+  // Creates table with items from localStorage data
   if (cartArray) {
     for (let i = 0; i < cartArray.length; i++) {
       let tr = document.createElement('tr');
@@ -80,6 +82,7 @@ function showCartItems() {
   addNumCart()
 }
 
+// change quantity product 
 function changeQuantity(index, value) {
   let cartArray = JSON.parse(localStorage.getItem('cart'));
   cartArray[index].quantity = parseInt(value);
@@ -90,6 +93,7 @@ function changeQuantity(index, value) {
   calculateTotalCartPrice();
 }
 
+// Calculate total value of order
 function calculateTotalCartPrice() {
 
   let cartArray = JSON.parse(localStorage.getItem('cart'));
@@ -113,6 +117,8 @@ function calculateTotalCartPrice() {
   }
 }
 
+
+// Remove item from cart and update localStorage data
 function removeItem(index) {
   let cartArray = JSON.parse(localStorage.getItem('cart'));
   cartArray.splice(index, 1);
@@ -122,6 +128,7 @@ function removeItem(index) {
   // Re-calculate
   calculateTotalCartPrice();
 }
+
 // POST DATA FROM USER 
 // ADD event to the button submit
 submitButton.addEventListener('click', ($event) => {
@@ -133,7 +140,7 @@ submitButton.addEventListener('click', ($event) => {
   for (let i = 0; i < cartArray.length; i++) {
     products.push(cartArray[i].prodId);
   }
-  console.log(products);
+  // console.log(products);
   // Object stores informations from form
   let contact = {
     firstName: firstName.value,
@@ -147,7 +154,7 @@ submitButton.addEventListener('click', ($event) => {
     products: products,
   }
 
-  console.log(data);
+  // console.log(data);
   if (isFirstNameValid && isLastNameValid && isEmailValid && isAddressValid && isCityValid) {
     makeRequest(data);
   }
@@ -281,7 +288,7 @@ function addNumCart() {
   }
 }
 
-//show empty bag when cart egal 0
+//show empty cart when cart egal 0
 function emptyCart(cartItemsWrapper) {
   // Empty current cart table items
   cartItemsWrapper.innerHTML = '';

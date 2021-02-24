@@ -35,11 +35,12 @@ function fetchSingleProduct(id) {
     .then(response => response.json())
     .then(data => {
       product = data;
-      console.log(product);
+      // console.log(product);
       showProduct(data);
     })
     .catch(err => console.log(err))
 }
+
 /**
  * Display single product data
  * @param {*} product - The single product to show
@@ -90,7 +91,7 @@ btnAddToCart.addEventListener('click', () => {
 
   // add Toast
   let confirme = document.getElementById('confirme-feedback');
-  confirme.innerHTML = `Added to cart. <a href='cart.html'>View Cart</a>`;
+  confirme.innerHTML = `Added to cart.`;
   confirme.classList.add('confirme-feedback--visible');
   confirme.hideTimeout = setTimeout(() => {
     confirme.classList.remove('confirme-feedback--visible');
