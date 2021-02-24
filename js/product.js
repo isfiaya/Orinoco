@@ -1,11 +1,11 @@
 'use strict';
 
 // DOM ELEMENT REFERENCES
-let nameElem = document.querySelector('h1');
-let imageElem = document.getElementById('picture');
 let priceElem = document.getElementById('price');
 let descElem = document.getElementById('desc');
-let select = document.getElementById('camera')
+let select = document.getElementById('camera');
+let wrapperImage = document.getElementById('big-image');
+let titleProduct = document.getElementById('titleproduct');
 const btnAddToCart = document.getElementById('btnAddToCart');
 //
 let product = {};
@@ -54,17 +54,24 @@ function showProduct(data) {
   let imageUrl = data.imageUrl;
   let lenses = data.lenses;
 
+  // image product 
+  let imageElem = document.createElement('img');
   imageElem.setAttribute('src', imageUrl);
+  wrapperImage.appendChild(imageElem);
+  // name product
+  let nameElem = document.createElement('h1');
   nameElem.innerHTML = name;
+  titleproduct.appendChild(nameElem);
+
   priceElem.innerHTML = price + ` $`;
   descElem.innerHTML = description;
-
   // DORPDOWN LISTENER
   for (let i in lenses) {
     const newOption = document.createElement("option");
     newOption.textContent = lenses[i];
     select.appendChild(newOption);
   }
+
   addNumCart()
 }
 
