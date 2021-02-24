@@ -2,7 +2,7 @@
 
 _Build an eCommerce Website_
 
-[hosted online on GitHub Pages](https://isfiaya.github.io/GoMikeDesigns/)
+[hosted online on GitHub Pages](https://isfiaya.github.io/Orinoco/)
 
 ### ARCHITECTURE
 
