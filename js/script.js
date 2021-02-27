@@ -2,7 +2,7 @@
 
 // SELECTORS
 let productsContainer = document.getElementById('products');
-let url = 'http://localhost:3000/api/cameras';
+let url = 'https://orinoco-op.herokuapp.com/api/cameras';
 let moveUpCursor = document.getElementById('move-up-cursor');
 
 // REQUEST TO PULL DATA FROM API

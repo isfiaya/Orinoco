@@ -31,7 +31,7 @@ function getProductId() {
  * @param {Number} id 
  */
 function fetchSingleProduct(id) {
-  fetch('http://localhost:3000/api/cameras/' + id)
+  fetch('https://orinoco-op.herokuapp.com/api/cameras/' + id)
     .then(response => response.json())
     .then(data => {
       product = data;
