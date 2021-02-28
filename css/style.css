@@ -218,6 +218,10 @@ footer .copyright {
   color: #9d63d2;
 }
 
+footer .copyright a {
+  text-decoration: none;
+}
+
 .img-insta {
   width: 100%;
   border-radius: 50%;
